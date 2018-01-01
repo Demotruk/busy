@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import VisibilitySensor from 'react-visibility-sensor';
 import formatter from '../helpers/steemitFormatter';
 import { getCryptoDetails } from '../helpers/cryptosHelper';
 import {
@@ -15,7 +14,6 @@ import {
 } from '../reducers';
 import { getContent } from './postActions';
 import Error404 from '../statics/Error404';
-import Comments from '../comments/Comments';
 import Loading from '../components/Icon/Loading';
 import PostContent from './PostContent';
 import Affix from '../components/Utils/Affix';
@@ -154,10 +152,6 @@ export default class Post extends React.Component {
             {showPost ? (
               <div className="center" style={{ paddingBottom: '24px' }}>
                 <PostContent content={content} />
-                <VisibilitySensor onChange={this.handleCommentsVisibility} />
-                <div id="comments">
-                  <Comments show={this.state.commentsVisible} post={content} />
-                </div>
               </div>
             ) : (
               <HiddenPostMessage onClick={this.handleShowPost} />
