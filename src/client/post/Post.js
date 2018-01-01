@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import VisibilitySensor from 'react-visibility-sensor';
 import formatter from '../helpers/steemitFormatter';
 import { getCryptoDetails } from '../helpers/cryptosHelper';
 import {
@@ -152,6 +153,7 @@ export default class Post extends React.Component {
             {showPost ? (
               <div className="center" style={{ paddingBottom: '24px' }}>
                 <PostContent content={content} />
+                <VisibilitySensor onChange={this.handleCommentsVisibility} />
               </div>
             ) : (
               <HiddenPostMessage onClick={this.handleShowPost} />
